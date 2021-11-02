@@ -4,7 +4,7 @@ import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import Swiper from "react-id-swiper";
 import SectionTitleFive from "../../components/section-title/SectionTitleFive";
-import ProductGridTwo from "./ProductGridTwo";
+import ProductGridTwo from "./ProductMainGrid";
 
 const TabProductEleven = ({
   spaceTopClass,

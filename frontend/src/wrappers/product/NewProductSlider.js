@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import Swiper from "react-id-swiper";
 import SectionTitleThree from "../../components/section-title/SectionTitleThree";
-import ProductGridTwo from "./ProductGridTwo";
+import ProductGridTwo from "./ProductMainGrid";
 
 const NewProductSlider = ({
   spaceTopClass,

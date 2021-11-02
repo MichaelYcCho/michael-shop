@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import ProductGridTwo from "./ProductGridTwo";
+import ProductGridTwo from "./ProductMainGrid";
 import SectionTitleTwo from "../../components/section-title/SectionTitleTwo";
 
 const NewProductGrid = ({ category, limit }) => {

@@ -38,7 +38,7 @@ class UserManager(BaseUserManager):
 
 class LoginType(models.TextChoices):
         LOGIN_EMAIL = "Email",
-        LOGING_KAKAO =  "Kakao"
+        LOGIN_KAKAO =  "Kakao"
 
 
 class User(AbstractBaseUser, PermissionsMixin):

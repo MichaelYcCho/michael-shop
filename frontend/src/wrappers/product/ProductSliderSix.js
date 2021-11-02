@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import Swiper from "react-id-swiper";
 import SectionTitle from "../../components/section-title/SectionTitle";
-import ProductGridTwo from "./ProductGridTwo";
+import ProductGridTwo from "./ProductMainGrid";
 
 const ProductSliderSix = ({ spaceBottomClass, spaceTopClass, category }) => {
   const settings = {

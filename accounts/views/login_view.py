@@ -69,14 +69,14 @@ def kakao_callback(request):
         # 유저는 존재하지만 카카오톡을 통해 로그인하지 않는 경우
         try:
             user = User.objects.get(email=email)
-            if user.login_type != LoginType.LOGING_KAKAO:
+            if user.login_type != LoginType.LOGIN_KAKAO:
                 raise KakaoException(f"Please log in with: {user.login_type}")
         except User.DoesNotExist:
             user = User.objects.create(
                 email=email,
                 first_name=nickname,
                 last_name=nickname,
-                login_type=LoginType.LOGING_KAKAO,
+                login_type=LoginType.LOGIN_KAKAO,
                 is_active=True,
             )
             user.set_unusable_password()

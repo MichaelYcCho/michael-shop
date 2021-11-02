@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
-import ProductGridTwo from "./ProductGridTwo";
+import ProductGridTwo from "./ProductMainGrid";
 
 const TabProductFive = ({
   spaceTopClass,

@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import { getProducts } from "../../helpers/product";
-import ProductGridSingleTwo from "../../components/product/ProductGridSingleTwo";
+
+import ProductMainContent from "components/product/ProductMainContent";
 import { addToCart } from "../../redux/actions/cartActions";
 import { addToWishlist } from "../../redux/actions/wishlistActions";
 import { addToCompare } from "../../redux/actions/compareActions";
@@ -25,7 +25,7 @@ const ProductGridTwo = ({
     <Fragment>
       {products.map((product) => {
         return (
-          <ProductGridSingleTwo
+          <ProductMainContent
             sliderClassName={sliderClassName}
             spaceBottomClass={spaceBottomClass}
             colorClass={colorClass}
@@ -73,12 +73,7 @@ ProductGridTwo.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    products: getProducts(
-      state.productData.products,
-      ownProps.category,
-      ownProps.type,
-      ownProps.limit
-    ),
+   
     currency: state.currencyData,
     cartItems: state.cartData,
     wishlistItems: state.wishlistData,
