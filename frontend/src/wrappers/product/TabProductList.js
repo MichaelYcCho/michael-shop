@@ -5,8 +5,8 @@ import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SectionTitleThree from "../../components/section-title/SectionTitleThree";
 import ProductMainGrid from "./ProductMainGrid";
-import { productListState } from "recoil/productRecoil";
-import { useRecoilValue } from "recoil";
+import { productListSelector } from "recoil/productRecoil";
+import { useRecoilState } from "recoil";
 
 const TabProductList = ({
   spaceTopClass,
@@ -16,7 +16,7 @@ const TabProductList = ({
   extraClass
 }) => {
 
-  const products = useRecoilValue(productListState);
+  const [products, setProducts] = useRecoilState(productListSelector);
 
   return (
     <div

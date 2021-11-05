@@ -26,7 +26,7 @@ export const productState = atom({
 });
 
 
-export const productListState = selector({
+export const productListSelector = selector({
     key: 'productList',
     get: async ({ get }) => {
         try {
@@ -42,10 +42,8 @@ export const productListState = selector({
         }
 
     },
-    set: ({ set }) => { 
-        set(productState, {
-            product: []
-        });
+    set: ({ set }, newValue) => { 
+        set(productState, newValue);
     }
  
 });
