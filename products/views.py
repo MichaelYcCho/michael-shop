@@ -26,3 +26,10 @@ def product_list(request):
     results = paginator.paginate_queryset(products, request)
     serializer = ProductSerializer(results, many=True)
     return paginator.get_paginated_response(serializer.data)
+
+
+@api_view(['GET'])
+def product_detail(request, pk):
+    product = Product.objects.get(pk=pk)
+    serializer = ProductSerializer(product, many=False)
+    return Response(serializer.data)
