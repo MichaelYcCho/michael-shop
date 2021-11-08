@@ -9,7 +9,7 @@ import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductDescriptionTab from "../../wrappers/product/ProductDescriptionTab";
 import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
 
-const Product = ({ location, product }) => {
+const ProductDetail = ({ location, product }) => {
   const { pathname } = location;
 
   return (
@@ -47,7 +47,7 @@ const Product = ({ location, product }) => {
         {/* related product slider */}
         <RelatedProductSlider
           spaceBottomClass="pb-95"
-          category={product.category[0]}
+          category={product.category.name}
         />
       </LayoutOne>
     </Fragment>
@@ -68,4 +68,4 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Product);
+export default ProductDetail;

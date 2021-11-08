@@ -38,7 +38,7 @@ const ProductGridListSingle = ({
           className={`product-wrap ${spaceBottomClass ? spaceBottomClass : ""}`}
         >
           <div className="product-img">
-            <Link to={process.env.PUBLIC_URL + "/product/" + product.pk}>
+            <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
               <img
                 className="default-img"
                 src={ `http://127.0.0.1:8000${product.product_image1}`}
@@ -97,7 +97,7 @@ const ProductGridListSingle = ({
                     Buy now{" "}
                   </a>
                 ) : product.variation && product.variation.length >= 1 ? (
-                  <Link to={`${process.env.PUBLIC_URL}/product/${product.id}`}>
+                  <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
                     Select Option
                   </Link>
                 ) : product.count_in_stock && product.count_in_stock > 0 ? (
@@ -134,7 +134,7 @@ const ProductGridListSingle = ({
           </div>
           <div className="product-content text-center">
             <h3>
-              <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+              <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
                 {product.name}
               </Link>
             </h3>
@@ -164,7 +164,7 @@ const ProductGridListSingle = ({
             <div className="col-xl-4 col-md-5 col-sm-6">
               <div className="product-list-image-wrap">
                 <div className="product-img">
-                <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+                <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
                   <img
                     className="default-img"
                     src={ `http://127.0.0.1:8000${product.product_image1}`}
@@ -202,7 +202,7 @@ const ProductGridListSingle = ({
             <div className="col-xl-8 col-md-7 col-sm-6">
               <div className="shop-list-content">
                 <h3>
-                  <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+                  <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
                     {product.name}
                   </Link>
                 </h3>
@@ -247,9 +247,8 @@ const ProductGridListSingle = ({
                         Buy now{" "}
                       </a>
                     ) : product.variation && product.variation.length >= 1 ? (
-                      <Link
-                        to={`${process.env.PUBLIC_URL}/product/${product.id}`}
-                      >
+
+                      <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
                         Select Option
                       </Link>
                     ) : product.count_in_stock && product.count_in_stock > 0 ? (
