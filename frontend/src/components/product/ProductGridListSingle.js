@@ -5,6 +5,7 @@ import { useToasts } from "react-toast-notifications";
 import { getDiscountPrice } from "../../helpers/product";
 import Rating from "./sub-components/ProductRating";
 import ProductModal from "./ProductModal";
+import { REACT_BACKEND_URL } from "utils/url";
 
 const ProductGridListSingle = ({
   product,
@@ -41,19 +42,19 @@ const ProductGridListSingle = ({
             <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
               <img
                 className="default-img"
-                src={ `http://127.0.0.1:8000${product.product_image1}`}
+                src={ REACT_BACKEND_URL + product.product_image1}
                 alt=""
               />
               { product.product_image2 ? (
                 <img
                   className="hover-img"
-                  src={  `http://127.0.0.1:8000${product.product_image2}`}
+                  src={ REACT_BACKEND_URL + product.product_image2}
                   alt=""
                 />
               ) : (
                 <img
                 className="hover-img"
-                src={  `http://127.0.0.1:8000${product.product_image1}`}
+                src={ REACT_BACKEND_URL + product.product_image1}
                 alt=""
               />
               )}
@@ -167,19 +168,19 @@ const ProductGridListSingle = ({
                 <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
                   <img
                     className="default-img"
-                    src={ `http://127.0.0.1:8000${product.product_image1}`}
+                    src={ REACT_BACKEND_URL + product.product_image1}
                     alt=""
                   />
                   { product.product_image2 ? (
                     <img
                       className="hover-img"
-                      src={  `http://127.0.0.1:8000${product.product_image2}`}
+                      src={ REACT_BACKEND_URL + product.product_image2}
                       alt=""
                     />
                   ) : (
                     <img
                     className="hover-img"
-                    src={  `http://127.0.0.1:8000${product.product_image1}`}
+                    src={ REACT_BACKEND_URL + product.product_image1}
                     alt=""
                   />
                   )}
