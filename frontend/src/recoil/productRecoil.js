@@ -55,29 +55,4 @@ export const productListSelector = selector({
  
 });
 
-
-export const productIdState = atom({
-    key: 'productIdState',
-    default: "",
-  });
-
-
-
-export const singleProductSelector = selector({
-    key: 'singleProduct',
-    get: async ({ get }) => {
-        try{
-            const product_id = get(productIdState);
-            const {
-                data: { results }
-            } = await axios.get(`http://127.0.0.1:8000/api/v1/product/${product_id}`);
-            
-            return results;
-        } catch (e) {
-            console.warn(e);
-            return [];
-        }
-    }
-});
-
         

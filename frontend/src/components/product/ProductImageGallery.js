@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { Fragment, useEffect, useState } from "react";
 import { LightgalleryProvider, LightgalleryItem } from "react-lightgallery";
 import Swiper from "react-id-swiper";
+import { REACT_BACKEND_URL } from "utils/url";
 
 const ProductImageGallery = ({ product }) => {
   const [gallerySwiper, getGallerySwiper] = useState(null);
@@ -71,13 +72,13 @@ const ProductImageGallery = ({ product }) => {
         )}
         <LightgalleryProvider>
           <Swiper {...gallerySwiperParams}>
-            {product.image &&
-              product.image.map((single, key) => {
+            {product.product_image1 &&
+              product.product_image1.map((single, key) => {
                 return (
                   <div key={key}>
                     <LightgalleryItem
                       group="any"
-                      src={process.env.PUBLIC_URL + single}
+                      src={ REACT_BACKEND_URL +  single}
                     >
                       <button>
                         <i className="pe-7s-expand1"></i>
@@ -98,8 +99,8 @@ const ProductImageGallery = ({ product }) => {
       </div>
       <div className="product-small-image-wrapper mt-15">
         <Swiper {...thumbnailSwiperParams}>
-          {product.image &&
-            product.image.map((single, key) => {
+          {product.product_image1 &&
+            product.product_image1.map((single, key) => {
               return (
                 <div key={key}>
                   <div className="single-image">

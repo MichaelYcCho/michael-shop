@@ -29,7 +29,7 @@ const ProductDescriptionInfo = ({
     product.variation ? product.variation[0].size[0].name : ""
   );
   const [productStock, setProductStock] = useState(
-    product.variation ? product.variation[0].size[0].stock : product.stock
+    product.count_in_stock ? product.count_in_stock : 0
   );
   const [quantityCount, setQuantityCount] = useState(1);
 
@@ -230,7 +230,8 @@ const ProductDescriptionInfo = ({
           </div>
         </div>
       )}
-      {product.category ? (
+      { /* todo 
+      product.category ? (
         <div className="pro-details-meta">
           <span>Categories :</span>
           <ul>
@@ -247,7 +248,7 @@ const ProductDescriptionInfo = ({
         </div>
       ) : (
         ""
-      )}
+      ) */}
       {product.tag ? (
         <div className="pro-details-meta">
           <span>Tags :</span>
@@ -266,7 +267,7 @@ const ProductDescriptionInfo = ({
       ) : (
         ""
       )}
-
+    {/* ToDo: Add Social Share 
       <div className="pro-details-social">
         <ul>
           <li>
@@ -296,6 +297,7 @@ const ProductDescriptionInfo = ({
           </li>
         </ul>
       </div>
+    */}
     </div>
   );
 };

@@ -4,7 +4,7 @@
     "image": "/assets/img/banner/man-shop-link.jpg",
     "title": "Men Fashion Shop",
     "subtitle": "Choose Your Products Here",
-    "link": "/men/cloth/list",
+    "link": "/men/clothes/list",
     "textAlign": "right"
   },
   {
@@ -12,7 +12,7 @@
     "image": "/assets/img/banner/women-shop-link.jpeg",
     "title": "Women Fashion Shop",
     "subtitle": "Choose Your Products Here",
-    "link": "/women/cloth/list",
+    "link": "/women/clothes/list",
     "textAlign": "left"
   }
 ]

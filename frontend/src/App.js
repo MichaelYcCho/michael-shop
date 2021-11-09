@@ -15,17 +15,8 @@ const ShopGridStandard = lazy(() => import("./pages/shop/ShopGridStandard"));
 const MenClothList = lazy(() => import("./pages/shop/MenClothList"));
 
 // product pages
-const Product = lazy(() => import("./pages/shop-product/Product"));
-const ProductTabLeft = lazy(() =>
-  import("./pages/shop-product/ProductTabLeft")
-);
-const ProductTabRight = lazy(() =>
-  import("./pages/shop-product/ProductTabRight")
-);
-const ProductSticky = lazy(() => import("./pages/shop-product/ProductSticky"));
-const ProductSlider = lazy(() => import("./pages/shop-product/ProductSlider"));
-const ProductFixedImage = lazy(() =>
-  import("./pages/shop-product/ProductFixedImage")
+const Product = lazy(() =>
+  import("./pages/shop-product/ProductDetail")
 );
 
 
@@ -122,30 +113,24 @@ const App = (props) => {
 
                 {/* Shop product pages */}
                 <Route
-                  path={process.env.PUBLIC_URL + "/men/clothes/:id"}
-                  render={(routeProps) => (
-                    <Product {...routeProps} key={routeProps.match.params.id} />
-                  )}
-                />
-                <Route
                   path={process.env.PUBLIC_URL + "/product-tab-left/:id"}
-                  component={ProductTabLeft}
+                  component={Product}
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/product-tab-right/:id"}
-                  component={ProductTabRight}
+                  component={Product}
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/product-sticky/:id"}
-                  component={ProductSticky}
+                  component={Product}
                 />
                 <Route
                   path={process.env.PUBLIC_URL + "/product-slider/:id"}
-                  component={ProductSlider}
+                  component={Product}
                 />
                 <Route
-                  path={process.env.PUBLIC_URL + "/product-fixed-image/:id"}
-                  component={ProductFixedImage}
+                  path={process.env.PUBLIC_URL + "/men/clothes/:id"}
+                  component={Product}
                 />
 
           

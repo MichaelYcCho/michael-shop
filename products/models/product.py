@@ -18,7 +18,12 @@ class Product(models.Model):
     product_image2  = models.ImageField(null=True, blank=True, upload_to='products/')
     brand = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    weight = models.IntegerField(null=True, blank=True)
+    dimensions = models.CharField(max_length=255, null=True, blank=True)
+    materials = models.CharField(max_length=255, null=True, blank=True)
+    other_info = models.TextField(null=True, blank=True)
     price = models.FloatField(default=0)
+    discount = models.FloatField(default=0)
     count_in_stock = models.IntegerField(null=True, blank=True, default=0)
     recommendation_rank = models.IntegerField(default=0, null=True)
     product_status = models.CharField(
@@ -26,6 +31,7 @@ class Product(models.Model):
         choices=ProductStatus.choices,
         default=ProductStatus.PLACED,
     )
+    is_new = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

@@ -42,8 +42,8 @@ const ProductMainContent = ({
           } ${colorClass ? colorClass : ""} `}
         >
           <div className="product-img">
-            
-            <Link to={process.env.PUBLIC_URL + "/product/" + product.id}>
+
+            <Link to={process.env.PUBLIC_URL + "/men/clothes/" + product.pk}>
               <img
                 className="default-img"
                 src={ REACT_BACKEND_URL + product.product_image1}

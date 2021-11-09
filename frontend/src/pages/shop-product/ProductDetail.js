@@ -2,15 +2,29 @@ import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import MetaTags from "react-meta-tags";
 import { BreadcrumbsItem } from "react-breadcrumbs-dynamic";
-import { connect } from "react-redux";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import RelatedProductSlider from "../../wrappers/product/RelatedProductSlider";
 import ProductDescriptionTab from "../../wrappers/product/ProductDescriptionTab";
-import ProductImageDescriptionSlider from "../../wrappers/product/ProductImageDescriptionSlider";
+import ProductImageDescription from "../../wrappers/product/ProductImageDescription";
 
-const ProductSlider = ({ location, product }) => {
+import { productListSelector } from "recoil/productRecoil";
+import { useRecoilValue } from "recoil";
+
+const ProductDetail = ({ location }) => {
   const { pathname } = location;
+
+  const products = useRecoilValue(productListSelector);
+  const productID = parseInt(pathname.split("/").reverse()[0])
+ 
+  const getProduct = (products, productID ) => {
+    if (products && productID) {
+        return products.filter(
+          product => product.pk === productID
+        );
+      }
+  }
+    const product = getProduct(products, productID)[0];
 
   return (
     <Fragment>
@@ -32,40 +46,36 @@ const ProductSlider = ({ location, product }) => {
         <Breadcrumb />
 
         {/* product description with image */}
-        <ProductImageDescriptionSlider
+        <ProductImageDescription
           spaceTopClass="pt-100"
           spaceBottomClass="pb-100"
           product={product}
+          galleryType="fixedImage"
         />
 
         {/* product description tab */}
         <ProductDescriptionTab
           spaceBottomClass="pb-90"
-          productFullDesc={product.fullDescription}
+          product={product}
+          productFullDesc={product.description}
         />
 
-        {/* related product slider */}
+        {/* ToDo: Related Product Slider 같은 카테고리 기반 Product 출력예정
         <RelatedProductSlider
           spaceBottomClass="pb-95"
           category={product.category[0]}
         />
+         */}
       </LayoutOne>
     </Fragment>
   );
 };
 
-ProductSlider.propTypes = {
+ProductDetail.propTypes = {
   location: PropTypes.object,
   product: PropTypes.object
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const itemId = ownProps.match.params.id;
-  return {
-    product: state.productData.products.filter(
-      single => single.id === itemId
-    )[0]
-  };
-};
 
-export default connect(mapStateToProps)(ProductSlider);
+
+export default ProductDetail;

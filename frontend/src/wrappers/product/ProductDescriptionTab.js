@@ -3,7 +3,7 @@ import React from "react";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 
-const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
+const ProductDescriptionTab = ({ product, spaceBottomClass, productFullDesc }) => {
   return (
     <div className={`description-review-area ${spaceBottomClass}`}>
       <div className="container">
@@ -18,33 +18,35 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
               <Nav.Item>
                 <Nav.Link eventKey="productDescription">Description</Nav.Link>
               </Nav.Item>
+              {/* ToDo: Review
               <Nav.Item>
                 <Nav.Link eventKey="productReviews">Reviews(2)</Nav.Link>
               </Nav.Item>
+              */}
             </Nav>
             <Tab.Content className="description-review-bottom">
               <Tab.Pane eventKey="additionalInfo">
                 <div className="product-anotherinfo-wrapper">
                   <ul>
                     <li>
-                      <span>Weight</span> 400 g
+                      <span>Weight</span> {product.weight}
                     </li>
                     <li>
-                      <span>Dimensions</span>10 x 10 x 15 cm{" "}
+                      <span>Dimensions</span> {product.dimensions}
                     </li>
                     <li>
-                      <span>Materials</span> 60% cotton, 40% polyester
+                      <span>Materials</span> {product.materials}
                     </li>
                     <li>
-                      <span>Other Info</span> American heirloom jean shorts pug
-                      seitan letterpress
+                      <span>Other Info</span> {product.other_info}
                     </li>
                   </ul>
                 </div>
               </Tab.Pane>
               <Tab.Pane eventKey="productDescription">
-                {productFullDesc}
+                {productFullDesc ? productFullDesc : "No description"}
               </Tab.Pane>
+              {/* Todo: Review
               <Tab.Pane eventKey="productReviews">
                 <div className="row">
                   <div className="col-lg-7">
@@ -170,6 +172,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                   </div>
                 </div>
               </Tab.Pane>
+              */}
             </Tab.Content>
           </Tab.Container>
         </div>
