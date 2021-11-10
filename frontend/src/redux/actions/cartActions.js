@@ -70,8 +70,8 @@ export const deleteAllFromCart = addToast => {
 
 // get stock of cart item
 export const cartItemStock = (item, color, size) => {
-  if (item.stock) {
-    return item.stock;
+  if (item.count_in_stock) {
+    return item.count_in_stock;
   } else {
     return item.variation
       .filter(single => single.color === color)[0]
