@@ -101,7 +101,7 @@ const ProductGridSingle = ({
                   <Link to={`${process.env.PUBLIC_URL}/product/${product.pk}`}>
                     Select Option
                   </Link>
-                ) : product.stock && product.stock > 0 ? (
+                ) : product.count_in_stock && product.count_in_stock > 0 ? (
                   <button
                     onClick={() => addToCart(product, addToast)}
                     className={
