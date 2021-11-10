@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
+import { REACT_BACKEND_URL } from "utils/url";
 import { getDiscountPrice } from "../../../helpers/product";
 
 const MenuCart = ({ cartData, currency, deleteFromCart }) => {
@@ -34,8 +35,7 @@ const MenuCart = ({ cartData, currency, deleteFromCart }) => {
                     <Link to={process.env.PUBLIC_URL + "/product/" + single.id}>
                       <img
                         alt=""
-                        //ToDO: Change image
-                        //src={process.env.PUBLIC_URL + single.image[0]}
+                        src={ REACT_BACKEND_URL + single.product_image1}
                         className="img-fluid"
                       />
                     </Link>

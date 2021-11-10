@@ -98,10 +98,7 @@ const Cart = ({
                                   >
                                     <img
                                       className="img-fluid"
-                                      src={
-                                        REACT_BACKEND_URL +
-                                        cartItem.product_image1
-                                      }
+                                      src={ REACT_BACKEND_URL + cartItem.product_image1}
                                       alt=""
                                     />
                                   </Link>
