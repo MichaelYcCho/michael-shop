@@ -13,7 +13,7 @@ const Checkout = ({ location, cartItems, currency }) => {
 
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [name, setName] = useState("");
+  const [userName, setUserName] = useState("");
   const [streetName, setStreetName] = useState("");
   const [apartment, setApartment] = useState("");
   const [postCode, setPostCode] = useState("");
@@ -52,7 +52,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                         <div className="col-lg-6 col-md-6">
                           <div className="billing-info mb-20">
                             <label>Name</label>
-                            <input type="text"  name="name"  onChange={event => setName(event.target.value)} />
+                            <input type="text"  name="userName"  onChange={event => setUserName(event.target.value)} />
                           </div>
                         </div>
                         {/*}
@@ -216,7 +216,7 @@ const Checkout = ({ location, cartItems, currency }) => {
                         <div className="payment-method"></div>
                       </div>
                       <div className="place-order mt-25">
-                        <Iamport  name={name}
+                        <Iamport  userName={userName}
                                   email={email} 
                                   phone={phone}
                                   country={country}
