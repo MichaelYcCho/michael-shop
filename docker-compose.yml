@@ -1,43 +1,54 @@
 version: "3.7"
 services:
+  frontend:
+    build:
+      context: ./frontend
+    networks:
+      - network
+    volumes:
+      - react-volume:/frontend/build
+    stdin_open: true
+    tty: true
+  backend:
+    build:
+      context: ./backend
+    networks:
+      - network
+    volumes:
+      - static-volume:/home/michael-shop/backend/staticfiles
+      - media-volume:/home/michael-shop/backend/media
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
   nginx:
     image: nginx:1.19.5
     networks:
       - network
     volumes:
-      - /home/custom_conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - static-volume:/data/static
       - media-volume:/data/media
+      - react-volume:/var/www/react
     ports:
       - 80:80
-  django_container_gunicorn:
-    image: michael_shop_image:1.0.4
-    networks:
-      - network
-    volumes:
-      - static-volume:/home/michael-shop/staticfiles
-      - media-volume:/home/michael-shop/media
-    secrets:
-      - DJANGO_SECRET_KEY
-      - DJANGO_KAKAO_ID
-      - POSTGRES_PASSWORD
     depends_on:
-      - db
-      - nginx
+      - backend
+      - frontend
   db:
+    env_file:
+      - ./.env
     image: postgres:13.5
     networks:
       - network
     volumes:
       - postgres-database:/var/lib/postgresql/data/
-    secrets:
-      - POSTGRES_PASSWORD
     ports:
       - "5432:5432"
     environment:
       POSTGRES_DB: michael_shop
       POSTGRES_USER: michael
-      POSTGRES_PASSWORD_FILE: /run/secrets/POSTGRES_PASSWORD
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
   
 
 networks:
@@ -47,11 +58,4 @@ volumes:
   static-volume:
   media-volume:
   postgres-database:
-
-secrets:
-  DJANGO_SECRET_KEY:
-    external: true
-  DJANGO_KAKAO_ID:
-    external: true
-  POSTGRES_PASSWORD:
-    external: true
+  react-volume:

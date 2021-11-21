@@ -38,12 +38,11 @@ class KakaoException(Exception):
 def kakao_callback(request):
     try:
         code = request.GET.get("code")
+        client_id = config('DJANGO_KAKAO_ID')
         
         if settings.DEBUG == False:
-            client_id = settings.DJANGO_KAKAO_ID
             redirect_uri = "http://158.247.224.15/accounts/login/kakao/callback"
         else:
-            client_id = config("DJANGO_KAKAO_ID")
             redirect_uri = "http://localhost:3000/accounts/login/kakao/callback"
         token_request = requests.get(
             f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={client_id}&redirect_uri={redirect_uri}&code={code}"

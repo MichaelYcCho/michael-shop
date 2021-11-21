@@ -1,19 +1,10 @@
-FROM python:3.10.0-buster
+FROM node:17-alpine
 
-WORKDIR /home/
-
-RUN echo "1.0.4"
-
-RUN git clone https://github.com/michael-cho77/michael-shop.git
-
-WORKDIR /home/michael-shop/
-
-RUN pip install -r requirements.txt
-
-EXPOSE 8000
+WORKDIR /frontend
 
 
-CMD ["bash", "-c", "python manage.py collectstatic --clear --noinput --settings=config.settings.deploy && python manage.py migrate --settings=config.settings.deploy && gunicorn config.wsgi --env DJANGO_SETTINGS_MODULE=config.settings.deploy --bind 0.0.0.0:8000"]
+COPY . .
 
-#CMD ["gunicorn", "config.wsgi", "--bind", "0.0.0:8000"]
-#CMD ["python", "manage.py", "runserver", "0.0.0:8000"]
+#RUN npm install --legacy-peer-deps
+
+#RUN npm run build
