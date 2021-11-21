@@ -18,6 +18,7 @@ from datetime import timedelta
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
@@ -121,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'frontend/build/static'
+    ROOT_DIR / 'frontend/build/static'
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
